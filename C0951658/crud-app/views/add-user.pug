@@ -1,0 +1,56 @@
+extends layout 
+
+block content
+    .form-container 
+        h1.w3-text-blue 
+            b Add new user
+
+        form.w3-container.w3-card-4.w3-light-grey(method="POST", action="/users")
+            .w3-row-padding
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="firstName") First Name
+                    input.w3-input.w3-border(type="text", name="firstName", id="firstName", required=true, placeholder="Enter First Name", value=user.firstName || '')
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="lastName") Last Name
+                    input.w3-input.w3-border(type="text", name="lastName", id="lastName", required=true, placeholder="Enter Last Name", value=user.lastName || '')
+            
+            .w3-row-padding 
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="dateOfBirth") Date of Birth
+                    input.w3-input.w3-border(type="date", name="dateOfBirth", id="dateOfBirth", required=true, value=user.dateOfBirth ||'')
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="email") Email Address 
+                    input.w3-input.w3-border(type="email", name="email", id="email", required=true, placeholder="Enter Email Address", value=user.email || '')
+
+            .w3-row-padding 
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="phoneNumber") Phone Number
+                    input.w3-input.w3-border(type="tel", name="phoneNumber", id="phoneNumber", required=true, placeholder="Enter Phone Number", value=user.phoneNumber || '')       
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="country") Country
+                    input.w3-input.w3-border(type="text", name="country", id="country", required=true, placeholder="Enter Country", value=user.country || '')
+
+            .w3-margin-top 
+                label.w3-text-blue(for="address1") Address line 1
+                input.w3-input.w3-border(type="text", name="address1", id="address1", required=true, placeholder="Enter Address Line 1", value=user.address1 || '')
+            
+            .w3-margin-top 
+                label.w3-text-blue(for="address2") Address line 2
+                input.w3-input.w3-border(type="text", name="address2", id="address2", placeholder="Enter Address Line 2", value=user.address2 || '')
+
+            .w3-row-padding 
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="city") City
+                    input.w3-input.w3-border(type="text", name="city", id="city", required=true, placeholder="Enter City", value=user.city || '')
+
+                .w3-half.w3-margin-bottom
+                    label.w3-text-blue(for="postalCode") Postal Code
+                    input.w3-input.w3-border(type="text", name="postalCode", id="postalCode", required=true, placeholder="Enter Postal Code", value=user.postalCode || '')
+
+            .w3-margin-top
+                label.w3-text-blue(for="userNotes") User Notes
+                textarea.w3-input.w3-border(name="userNotes", id="userNotes", rows="4", placeholder="Additional Notes")= user.userNotes || ''
+
+            .w3-margin-top
+                button.w3-button.w3-blue.w3-large(type="submit") Add User
+                a.w3-button.w3-gray.w3-large(href="/users", style="margin-left: 10px;") Cancel

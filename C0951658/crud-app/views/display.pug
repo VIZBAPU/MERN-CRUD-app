@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    .w3-container
+        h1.w3-text-blue.w3-center
+            b All Users
+            
+            .w3-margin-bottom
+            h2.w3-text-blue
+                b No. of Users:
+                if users && users.length > 0
+                    span.w3-margin-left= users.length
+                else
+                    span.w3-badge.w3-red.w3-margin-left 0
+        
+        if users && users.length > 0
+            .table-container
+                table.w3-table.w3-striped.w3-bordered.w3-hoverable.w3-centered
+                    thead
+                        tr.w3-blue
+                            th Name
+                            th Date of Birth
+                            th Email
+                            th Phone
+                            th City
+                            th Country
+                            th Actions
+                    tbody
+                        each user in users
+                            tr
+                                td
+                                    strong #{user.lastName}, #{user.firstName}
+                                td= user.dateOfBirth.toLocaleDateString()
+                                td= user.email
+                                td= user.phoneNumber
+                                td= user.city
+                                td= user.country
+                                td
+                                    a.w3-button.w3-blue(href=`/users/edit/${user._id}`) Update/Delete
+        else
+            .w3-panel.w3-yellow.w3-padding
+                h3 No Users Found
+                p There are no users in the database. 
+                    a.w3-text-blue(href="/users/add") Click here to add the first user.
