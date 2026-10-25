@@ -234,7 +234,6 @@ app.delete('/users/:id', async (req, res) => {
 // Listen on specified PORT
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-    console.log(`Database connected successfully ${uri}`);
     console.log(`http://localhost:${PORT}/users to view the user management system.`);
     console.log(`http://localhost:${PORT}/users/add to add a new user.`);
 });
